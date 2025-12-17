@@ -1,0 +1,273 @@
+Git : track changes in our code and lets us easily undo our changes
+
+Repository : a folder where changes are being tracked
+
+## Main Idea of JS
+
+1. Save the data - Model
+2. Generate the HTML - View
+3. Make it interactive - Controller
+
+data - information ; information about our products
+
+We usually use a combination of object and arrays to create a DS
+
+How do we know which product to add?
+Data Attribute:
+
+- is just another HTML attribute
+- allows us to attach any information to an element
+- name on the left , value on the right
+- have to start with "data-" kebab case
+- then give it any name
+
+Modules : a better way to organize our code
+
+## Create a Module
+
+1. Create a file
+2. Dont load the file with <script></script>
+   Any variables we create inside the file will be contained inside the file
+
+## Get a variable out of a file
+
+1. Add type="module" attribute : Lets this file get variables out of other files
+2. Export
+3. Import
+
+- Always put modules at the top of the file ,use live server and dont run html files directly
+
+## Benefits of module
+
+1. Avoids naming conflict
+2. Dont worry about order of files
+
+- The amazon.js file is the entry point of the code
+- Best practice : Group related code together into its own file
+
+import \* as cartModule from '../data/cart.js'
+cartModule.cart
+cartModule.addToCart('id'); and then we can access as a property or a method
+
+Normalizing the data : Normalization means organizing data to reduce redundancy and improve data integrity.
+
+Sometimes it simply means cleaning or standardizing data — like trimming spaces, converting to lowercase, formatting dates, etc.
+
+## External Libraries, MVC , Finish the Checkout Page
+
+External Libraries: Code that is outside of our project >> How to put an HTML Website Online - learn how to put code online
+
+## Uses:
+
+- let us share code
+- save time
+- avoid duplicating work
+
+## Best practice in programming to save time and energy
+
+When we need smg complicated,
+
+- Try to find an external library first
+- Before writing the code ourselves
+
+To find like date : javascript date library
+
+## ESM Version
+
+A version that works with JS Modules
+ESM - Ecmascript Module
+Ecmascript = Javascript
+
+## Default Export
+
+- another way of exporting
+- we can use it when we only want to export 1 thing
+- when we have a curly bracket , we call it Named Export
+- not every library has an esm version , some libraries we still have a script tag
+
+Normalizing Data : When we save data somewhere(Object) and we have an Id pointed to the data that was saved
+
+For you to pass inaccessible variables , you can create a function and pass the variable as an argument
+
+- Attribute 'checked' selector makes a selector checked
+
+Recursion : A function can call / re-run itself
+
+Instead of using the dom and updating the html one by one
+
+- Update the data
+- Regenerate all the HTML
+
+MVC :
+MODEL - VIEW - CONTROLLER
+
+Split code into 3 parts:
+
+Model : saves and manages the data
+View : take the data and displays it on the page
+Controller: runs some code when we interact with the page
+
+MVC : makes sure the page always matches the data
+
+Easiest way to test:
+
+- Open the website and try out the code (Manual testing) ; Cons - is hard to test every situation, is hard to retest the code
+- Using code to test code (Automated testing);
+
+Any situation you're testing is called a testcase
+
+2 types of Test Cases:
+
+1. Basic test cases ~ tests if the code is working
+2. Edge cases ~ test with values that are tricky
+
+Group of related tests ~ test suite
+
+Testing Framework like Jasmine test ::: external library that helps us write test easier ~
+
+1. Create test suite
+2. Create tests
+3. Compare values and display result
+
+## Testing
+
+- We can use describe inside describe
+- Best practice is to Test each condition of an if statement(Try to maximize test coverage)
+- Test Coverage ~ how much of the code is being tested ~ Try to maximize test coverage
+- Local storage is always a problem whilst testing
+
+Flaky test ~ test that sometimes passes and sometimes fails
+
+Mocks ~ lets us replace a method with a fake version
+In programming, mocking means you're pretending that a part of your program (like a database, file, or local storage) works a certain way, without using the real thing.
+
+spyOn() records every time a method is used
+
+A mock only lasts for 1 test
+
+Unit Tests ~ testing 1 piece of the code
+Integration Test ~ test many units/pieces of code working together
+
+When we testing a page:
+
+1. How the page looks
+2. How the page behaves
+
+Hooks ~ lets us run some code for each test
+
+Process:
+
+- Make changes to code
+- Re-run the tests
+- Save to Git
+
+Be careful of localStorage in all the functions, rest the, w setItem
+
+\*\*\*Create tests for these files : products.js / paymentSummary.js
+
+OOP - another style of programming, another way we write our code , organizing our code into objects
+
+Procedural Programming : Procedure - a set of step by step instructions (a function)
+
+this:
+
+- Gives us the object that contains the function we are trying to access , it would always give us the outer object
+
+- lets an object access its own properties
+- Inside a fn, we can change "this" to whatever we want
+- Arrow fns do not change the value of this
+- this will have the same value as outside the arrow fn
+
+- this "The object that is currently being used" or "The instance that called the method."
+
+- Whenever you see this, ask yourself:
+  “Which object is running this code right now?”
+  That’s what this refers to.
+
+student1 is an object.
+
+sayHello is a function (method) that belongs to student1.
+
+Dot notation (student1.sayHello()) is how we call that method on the object.
+
+Inside sayHello, this refers to the object (student1) that called it.
+
+### Why we use OOP :::
+
+- tries to repr the real world
+- easy to create multiple objects
+
+## We use pascalCase Convention in OOP for things that generate objects - start every word with a capital
+
+## Class
+
+- An even better way to generate objects in OOP, it is an object generator
+
+- Each object generated from the class is called an instance of the class
+
+- A class looks like the object that it generates
+
+- They have extra features for OOP like
+
+  - Constructor - lets us run setup code, it lets us put this setup code inside the class,
+  - when we generate an object, it would run the constructor automatically , it is a great place to put our setup code,
+  - Has to be named "constructor"
+  - Should not return anything
+
+- Private property : it can only be accessed inside the class
+- A field is the same as a property
+- A class allows us to create private properties and methods especially for security reasons
+
+## Converting an object into a class
+
+- One way to set the properties is to access them outside the class
+
+- Setup code - constructor : Whenever we generate an object, a constructor is automatically ran
+
+- Converting an object into a class and then copy over the properties to "this" class because classes have extra features like adding methods , and make properties / methods private
+
+- Same object as before but an enhanced version(It has some extra features)
+
+- .map() = transforms each item.
+  It doesn’t change the original array.
+  It builds a new array with the result of what you return inside the function.
+
+## Inheritance
+
+- Lets us reuse code between classes
+- We use inheritance when we have one class which is a more specific type of another class
+- After Inheritance , we can add properties and methods that are more specific
+- type: Discriminator Property
+- href : tells the computer what to do when we click the link
+- target=\_blank: tells the link to open in a new tab
+
+Polymorphism - use a method without knowing the class it belongs too; the class will determine what this method does ; is an alt of using if statement.
+
+🧬 Polymorphism (in simple English):
+Polymorphism means that different objects can do the same thing in their own way.
+
+Imagine you tell different animals to "make a sound":
+
+A dog will bark.
+
+A cat will meow.
+
+A cow will moo.
+
+Even though you gave the same instruction ("make a sound"), each animal does something different — based on what kind of animal it is.
+
+In programming, this means different classes (like Dog, Cat, Cow) can all have a method called makeSound(), and when you call that method, the right version will run depending on the object.
+
+You don’t have to worry about how each one does it — you just use the same method name, and each object responds in its own way.
+
+That’s polymorphism — one command, many behaviors.
+
+🔁 Method Overloading
+Method overloading is when a class has multiple methods with the same name but different parameters (different type, number, or order). This allows a method to perform similar operations in slightly different ways depending on the arguments passed. While common in languages like Java or C#, JavaScript does not support traditional method overloading — instead, developers often use optional parameters or check argument types manually inside one method.
+
+🔄 Method Overriding
+Method overriding occurs when a subclass (child class) provides its own version of a method that is already defined in its superclass (parent class). This allows the child class to change or extend the behavior of the inherited method. In JavaScript, you override a method by defining it in the subclass using the same name as in the parent. This is a key feature for customizing how objects behave when inherited.
+
+Built-in classes - classes that are provided by the language
+
+Protected Class : It can be accessed inside a class and its child classes
